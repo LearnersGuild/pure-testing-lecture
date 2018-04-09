@@ -1,0 +1,30 @@
+{
+  "name": "pure-testing-lecture",
+  "version": "1.0.0",
+  "description": "show how pure functions make testing easier",
+  "main": "lib/index.js",
+  "repository": "https://github.com/LearnersGuild/pure-testing-lecture",
+  "author": "Jeffrey Wescott <jeffrey@learnersguild.org>",
+  "license": "ISC",
+  "engines": {
+    "node": "~8.9"
+  },
+  "scripts": {
+    "build": "./node_modules/.bin/babel src --out-dir lib",
+    "test:run": "./node_modules/.bin/tape ./lib/**/__tests__/*-test.js | ./node_modules/.bin/tap-spec",
+    "test": "yarn run build && yarn run test:run"
+  },
+  "babel": {
+    "presets": [
+      "env",
+      "es2017"
+    ]
+  },
+  "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-preset-env": "^1.6.1",
+    "babel-preset-es2017": "^6.24.1",
+    "tap-spec": "^4.1.1",
+    "tape-async": "^2.3.0"
+  }
+}
