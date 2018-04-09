@@ -11,20 +11,25 @@
   },
   "scripts": {
     "build": "./node_modules/.bin/babel src --out-dir lib",
-    "test:run": "./node_modules/.bin/tape ./lib/**/__tests__/*-test.js | ./node_modules/.bin/tap-spec",
+    "test:run": "./node_modules/.bin/tape -r babel-polyfill ./lib/**/__tests__/*-test.js | ./node_modules/.bin/tap-spec",
     "test": "yarn run build && yarn run test:run"
   },
   "babel": {
     "presets": [
       "env",
-      "es2017"
+      "stage-2"
     ]
   },
   "devDependencies": {
     "babel-cli": "^6.26.0",
+    "babel-polyfill": "^6.26.0",
     "babel-preset-env": "^1.6.1",
-    "babel-preset-es2017": "^6.24.1",
-    "tap-spec": "^4.1.1",
-    "tape-async": "^2.3.0"
+    "babel-preset-stage-2": "^6.24.1",
+    "blue-tape": "^1.0.0",
+    "nock": "^9.2.3",
+    "tap-spec": "^4.1.1"
+  },
+  "dependencies": {
+    "node-fetch": "^2.1.2"
   }
 }
