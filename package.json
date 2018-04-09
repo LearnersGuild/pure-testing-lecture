@@ -11,8 +11,9 @@
   },
   "scripts": {
     "build": "./node_modules/.bin/babel src --out-dir lib",
+    "test:lint": "./node_modules/.bin/eslint src",
     "test:run": "./node_modules/.bin/tape -r babel-polyfill ./lib/**/__tests__/*-test.js | ./node_modules/.bin/tap-spec",
-    "test": "yarn run build && yarn run test:run"
+    "test": "yarn run build && yarn run test:lint && yarn run test:run"
   },
   "babel": {
     "presets": [
@@ -20,12 +21,19 @@
       "stage-2"
     ]
   },
+  "eslintConfig": {
+    "parserOptions": {
+      "ecmaVersion": 2018,
+      "sourceType": "module"
+    }
+  },
   "devDependencies": {
     "babel-cli": "^6.26.0",
     "babel-polyfill": "^6.26.0",
     "babel-preset-env": "^1.6.1",
     "babel-preset-stage-2": "^6.24.1",
     "blue-tape": "^1.0.0",
+    "eslint": "^4.19.1",
     "nock": "^9.2.3",
     "tap-spec": "^4.1.1"
   },
