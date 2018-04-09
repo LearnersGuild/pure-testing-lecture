@@ -12,6 +12,7 @@
   "scripts": {
     "build": "./node_modules/.bin/babel src --out-dir lib",
     "dev": "./node_modules/.bin/watch 'yarn run test' src",
+    "go": "yarn run build && node -r babel-polyfill ./lib",
     "test:lint": "./node_modules/.bin/eslint src",
     "test:run": "./node_modules/.bin/tape -r babel-polyfill ./lib/**/__tests__/*-test.js | ./node_modules/.bin/tap-spec",
     "test": "yarn run build && yarn run test:lint && yarn run test:run"
@@ -40,6 +41,8 @@
     "watch": "^1.0.2"
   },
   "dependencies": {
+    "json2csv": "^4.0.3",
+    "minimist": "^1.2.0",
     "node-fetch": "^2.1.2"
   }
 }
