@@ -1,7 +1,7 @@
 import test from 'blue-tape'
 import nock from 'nock'
 
-import {jsonFetch} from '../index'
+import jsonFetch from '../json-fetch'
 
 test('jsonFetch', t => {
   t.plan(2)
