@@ -11,6 +11,7 @@
   },
   "scripts": {
     "build": "./node_modules/.bin/babel src --out-dir lib",
+    "dev": "./node_modules/.bin/watch 'yarn run test' src",
     "test:lint": "./node_modules/.bin/eslint src",
     "test:run": "./node_modules/.bin/tape -r babel-polyfill ./lib/**/__tests__/*-test.js | ./node_modules/.bin/tap-spec",
     "test": "yarn run build && yarn run test:lint && yarn run test:run"
@@ -35,7 +36,8 @@
     "blue-tape": "^1.0.0",
     "eslint": "^4.19.1",
     "nock": "^9.2.3",
-    "tap-spec": "^4.1.1"
+    "tap-spec": "^4.1.1",
+    "watch": "^1.0.2"
   },
   "dependencies": {
     "node-fetch": "^2.1.2"
