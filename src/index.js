@@ -1,8 +1,16 @@
 import parseArgs from 'minimist'
 
-import writeTopCryptoCoins from './write-top-crypto-coins'
+import getTopCryptoCoins from './get-top-crypto-coins'
+import json2csv from './json-2-csv'
+import writeFile from './write-file'
 
 const NUM_COINS = 10
+
+const writeTopCryptoCoins = async (outFilename, numCoins) => {
+  const topCoinsJson = await getTopCryptoCoins(numCoins)
+  const topCoinsCsv = json2csv(topCoinsJson)
+  writeFile(outFilename, topCoinsCsv)
+}
 
 const run = argv => {
   return new Promise((resolve, reject) => {
